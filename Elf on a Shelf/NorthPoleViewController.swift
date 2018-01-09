@@ -25,6 +25,10 @@ class NorthPoleViewController: UIViewController {
             } else {
                 print("🤩🤩🤩🤩🤩 Made It!\(String(describing: response))")
             }
+
+            guard let newData = data else { return }
+            let jsonString = String(data: newData, encoding: String.Encoding.utf8)
+            print(jsonString ?? "😱😱😱😱😱 Unable to parse data as JSON")
             }.resume()
 
         weatherInfoLabel.text = "Hey, it worked!"
