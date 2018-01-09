@@ -23,10 +23,17 @@ class NorthPoleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        sceneView.delegate = self
+
         weatherInfoLabel.text = "Hey, it worked!"
         fetchTemperature()
+        setUpARScene()
+    }
 
+    func setUpARScene() {
         let configuration = ARWorldTrackingConfiguration()
+        configuration.planeDetection = .horizontal
         sceneView.session.run(configuration)
     }
 
@@ -37,3 +44,4 @@ class NorthPoleViewController: UIViewController {
 }
 
 extension NorthPoleViewController: TemperatureFetching {}
+extension NorthPoleViewController: ARSCNViewDelegate {}
