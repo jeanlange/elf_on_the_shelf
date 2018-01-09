@@ -9,12 +9,14 @@
 import Foundation
 
 protocol TemperatureFetching {
+    var state: String { get }
+    var city: String  { get }
     func fetchTemperature()
 }
 
 extension TemperatureFetching {
     func fetchTemperature() {
-        guard let url = URL(string: "https://api.wunderground.com/api/b193c8afeeecdbb2/conditions/q/AK/North_Pole.json") else { return }
+        guard let url = URL(string: "https://api.wunderground.com/api/b193c8afeeecdbb2/conditions/q/\(state)/\(city).json") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         let session = URLSession.shared
