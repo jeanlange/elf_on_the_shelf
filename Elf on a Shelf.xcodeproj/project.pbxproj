@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C830AFC72005076400AFA72D /* SantaClausViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C830AFC62005076400AFA72D /* SantaClausViewController.swift */; };
 		C8DD793B2004F6F200A33514 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DD793A2004F6F200A33514 /* AppDelegate.swift */; };
 		C8DD793D2004F6F200A33514 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DD793C2004F6F200A33514 /* ViewController.swift */; };
 		C8DD79402004F6F200A33514 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8DD793E2004F6F200A33514 /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C830AFC62005076400AFA72D /* SantaClausViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SantaClausViewController.swift; sourceTree = "<group>"; };
 		C8DD79372004F6F100A33514 /* Elf on a Shelf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elf on a Shelf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DD793A2004F6F200A33514 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8DD793C2004F6F200A33514 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				C8DD793A2004F6F200A33514 /* AppDelegate.swift */,
 				C8DD793C2004F6F200A33514 /* ViewController.swift */,
 				C8DD793E2004F6F200A33514 /* Main.storyboard */,
+				C830AFC62005076400AFA72D /* SantaClausViewController.swift */,
 				C8DD79682004F81600A33514 /* NorthPoleViewController.swift */,
 				C8DD796A200503A600A33514 /* temperatureFetching.swift */,
 				C8DD79412004F6F200A33514 /* Assets.xcassets */,
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C830AFC72005076400AFA72D /* SantaClausViewController.swift in Sources */,
 				C8DD793D2004F6F200A33514 /* ViewController.swift in Sources */,
 				C8DD793B2004F6F200A33514 /* AppDelegate.swift in Sources */,
 				C8DD796B200503A600A33514 /* temperatureFetching.swift in Sources */,
