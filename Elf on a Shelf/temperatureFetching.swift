@@ -11,3 +11,24 @@ import Foundation
 protocol TemperatureFetching {
     func fetchTemperature()
 }
+
+extension TemperatureFetching {
+    func fetchTemperature() {
+        guard let url = URL(string: "https://api.wunderground.com/api/b193c8afeeecdbb2/conditions/q/AK/North_Pole.json") else { return }
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        let session = URLSession.shared
+
+        session.dataTask(with: request) { data, response, error in
+            if error != nil {
+                print("😡😡😡😡😡\(error.debugDescription)")
+            } else {
+                print("🤩🤩🤩🤩🤩 Made It!\(String(describing: response))")
+            }
+
+            guard let newData = data else { return }
+            let jsonString = String(data: newData, encoding: String.Encoding.utf8)
+            print(jsonString ?? "😱😱😱😱😱 Unable to parse data as JSON")
+            }.resume()
+    }
+}
