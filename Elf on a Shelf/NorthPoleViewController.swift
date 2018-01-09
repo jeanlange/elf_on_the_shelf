@@ -14,6 +14,14 @@ class NorthPoleViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        weatherInfoLabel.text = "Hey, it worked!"
+        fetchTemperature()
+    }
+
+}
+
+extension NorthPoleViewController: TemperatureFetching {
+    func fetchTemperature() {
         guard let url = URL(string: "https://api.wunderground.com/api/b193c8afeeecdbb2/conditions/q/AK/North_Pole.json") else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
@@ -30,8 +38,5 @@ class NorthPoleViewController: UIViewController {
             let jsonString = String(data: newData, encoding: String.Encoding.utf8)
             print(jsonString ?? "😱😱😱😱😱 Unable to parse data as JSON")
             }.resume()
-
-        weatherInfoLabel.text = "Hey, it worked!"
     }
-
 }
