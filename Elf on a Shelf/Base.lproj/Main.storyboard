@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jCi-En-iLC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -34,15 +34,25 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="7e3-Tp-zen" appends="YES" id="YMH-gk-4mB"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="weatherInfoLabel" destination="vLh-gV-oRn" id="oX9-jB-Mbh"/>
+                        <segue destination="jCi-En-iLC" kind="presentation" identifier="NorthPoleToSantaClaus" id="dse-bn-Pzc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="left" id="7e3-Tp-zen">
+                    <connections>
+                        <action selector="swipeLeft" destination="BYZ-38-t0r" id="HGF-m4-bOU"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-79.200000000000003" y="133.5832083958021"/>
+            <point key="canvasLocation" x="-332" y="134"/>
         </scene>
         <!--Santa Claus View Controller-->
         <scene sceneID="VoG-C6-1b0">
@@ -68,13 +78,23 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <viewLayoutGuide key="safeArea" id="T9q-Ns-KUy"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="3c7-9a-j2G" appends="YES" id="EBe-fS-xb0"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="weatherInfoLabel" destination="7ZM-2s-TnV" id="Scw-Db-9eR"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SantaClausToNorthPole" id="Q37-Np-Ji1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpn-e8-Lpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <swipeGestureRecognizer direction="right" id="3c7-9a-j2G">
+                    <connections>
+                        <action selector="swipeRight" destination="jCi-En-iLC" id="jhQ-yO-Fsf"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="626" y="134"/>
         </scene>

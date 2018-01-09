@@ -10,6 +10,9 @@ import UIKit
 
 class NorthPoleViewController: UIViewController {
 
+    @IBAction func swipeLeft() {
+        performSegue(withIdentifier: "NorthPoleToSantaClaus", sender: self)
+    }
     @IBOutlet weak var weatherInfoLabel: UILabel!
 
     override func viewDidLoad() {
