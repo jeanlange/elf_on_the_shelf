@@ -24,14 +24,16 @@ class NorthPoleViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        sceneView.delegate = self
-
         weatherInfoLabel.text = "Hey, it worked!"
         fetchTemperature()
         setUpARScene()
     }
 
     func setUpARScene() {
+        sceneView.delegate = self
+        let scene = SCNScene()
+        sceneView.scene = scene
+
         let configuration = ARWorldTrackingConfiguration()
         configuration.planeDetection = .horizontal
         sceneView.session.run(configuration)
