@@ -14,6 +14,7 @@
 		C8DD79452004F6F200A33514 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8DD79432004F6F200A33514 /* LaunchScreen.storyboard */; };
 		C8DD79502004F6F200A33514 /* Elf_on_a_ShelfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DD794F2004F6F200A33514 /* Elf_on_a_ShelfTests.swift */; };
 		C8DD795B2004F6F200A33514 /* Elf_on_a_ShelfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DD795A2004F6F200A33514 /* Elf_on_a_ShelfUITests.swift */; };
+		C8DD79692004F81600A33514 /* NorthPoleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8DD79682004F81600A33514 /* NorthPoleViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		C8DD79562004F6F200A33514 /* Elf on a ShelfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Elf on a ShelfUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8DD795A2004F6F200A33514 /* Elf_on_a_ShelfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Elf_on_a_ShelfUITests.swift; sourceTree = "<group>"; };
 		C8DD795C2004F6F200A33514 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8DD79682004F81600A33514 /* NorthPoleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NorthPoleViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				C8DD793A2004F6F200A33514 /* AppDelegate.swift */,
 				C8DD793C2004F6F200A33514 /* ViewController.swift */,
 				C8DD793E2004F6F200A33514 /* Main.storyboard */,
+				C8DD79682004F81600A33514 /* NorthPoleViewController.swift */,
 				C8DD79412004F6F200A33514 /* Assets.xcassets */,
 				C8DD79432004F6F200A33514 /* LaunchScreen.storyboard */,
 				C8DD79462004F6F200A33514 /* Info.plist */,
@@ -261,6 +264,7 @@
 			files = (
 				C8DD793D2004F6F200A33514 /* ViewController.swift in Sources */,
 				C8DD793B2004F6F200A33514 /* AppDelegate.swift in Sources */,
+				C8DD79692004F81600A33514 /* NorthPoleViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
