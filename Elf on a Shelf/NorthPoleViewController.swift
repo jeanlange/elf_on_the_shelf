@@ -14,6 +14,8 @@ class NorthPoleViewController: UIViewController {
     let city  = "North_Pole"
     let state = "AK"
 
+    var planes = [UUID: VirtualPlane]()
+
     @IBAction func swipeLeft() {
         performSegue(withIdentifier: "NorthPoleToSantaClaus", sender: self)
     }
@@ -27,6 +29,8 @@ class NorthPoleViewController: UIViewController {
         weatherInfoLabel.text = "Hey, it worked!"
         fetchTemperature()
         setUpARScene()
+
+        sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
     }
 
     func setUpARScene() {
@@ -46,4 +50,23 @@ class NorthPoleViewController: UIViewController {
 }
 
 extension NorthPoleViewController: TemperatureFetching {}
-extension NorthPoleViewController: ARSCNViewDelegate {}
+extension NorthPoleViewController: ARSCNViewDelegate {
+    func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor {
+            let plane = VirtualPlane(anchor: arPlaneAnchor)
+            self.planes[arPlaneAnchor.identifier] = plane
+            node.addChildNode(plane)
+        }
+    }
+
+    func renderer(_ renderer: SCNSceneRenderer, didUpdate node: SCNNode, for anchor: ARAnchor) {
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let plane = planes[arPlaneAnchor.identifier] {
+            plane.updateWithNewAnchor(anchor: arPlaneAnchor)
+        }
+    }
+    func renderer(_ renderer: SCNSceneRenderer, didRemove node: SCNNode, for anchor: ARAnchor) {
+        if let arPlaneAnchor = anchor as? ARPlaneAnchor, let index = planes.index(forKey: arPlaneAnchor.identifier) {
+            planes.remove(at: index)
+        }
+    }
+}
