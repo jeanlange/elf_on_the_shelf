@@ -42,7 +42,7 @@
                     </view>
                     <connections>
                         <outlet property="weatherInfoLabel" destination="vLh-gV-oRn" id="oX9-jB-Mbh"/>
-                        <segue destination="jCi-En-iLC" kind="presentation" identifier="NorthPoleToSantaClaus" id="dse-bn-Pzc"/>
+                        <segue destination="jCi-En-iLC" kind="presentation" identifier="NorthPoleToSantaClaus" modalTransitionStyle="crossDissolve" id="dse-bn-Pzc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -86,7 +86,7 @@
                     </view>
                     <connections>
                         <outlet property="weatherInfoLabel" destination="7ZM-2s-TnV" id="Scw-Db-9eR"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SantaClausToNorthPole" id="Q37-Np-Ji1"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="SantaClausToNorthPole" modalTransitionStyle="crossDissolve" id="Q37-Np-Ji1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mpn-e8-Lpx" userLabel="First Responder" sceneMemberID="firstResponder"/>
