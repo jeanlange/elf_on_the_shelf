@@ -31,6 +31,24 @@ extension TemperatureFetching {
             guard let newData = data else { return }
             let jsonString = String(data: newData, encoding: String.Encoding.utf8)
             print(jsonString ?? "😱😱😱😱😱 Unable to parse data as JSON")
+
+            guard let jsonData = jsonString?.data(using: .utf8) else { return }
+            let decoder = JSONDecoder()
+            let decodedData = try? decoder.decode(CurrentObservation.self, from: jsonData)
+
+            guard let weatherWeCareAbout = decodedData?.current_observation else { return }
+            print("weather: \(weatherWeCareAbout.temperature_string) and \(weatherWeCareAbout.weather), windchill: \(weatherWeCareAbout.windchill_f)")
             }.resume()
     }
+}
+
+struct CurrentObservation: Codable {
+    let current_observation: TemperatureInfo
+}
+
+struct TemperatureInfo: Codable {
+    let weather: String
+//    let temp_f: Double
+    let windchill_f: String
+    let temperature_string: String
 }
