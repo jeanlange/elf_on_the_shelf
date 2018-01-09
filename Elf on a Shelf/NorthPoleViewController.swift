@@ -15,6 +15,8 @@ class NorthPoleViewController: UIViewController {
     let state = "AK"
 
     var planes = [UUID: VirtualPlane]()
+    var elfNode: SCNNode?
+    var selectedPlane: VirtualPlane?
 
     @IBAction func swipeLeft() {
         performSegue(withIdentifier: "NorthPoleToSantaClaus", sender: self)
@@ -31,6 +33,45 @@ class NorthPoleViewController: UIViewController {
         setUpARScene()
 
         sceneView.debugOptions = [ARSCNDebugOptions.showFeaturePoints, ARSCNDebugOptions.showWorldOrigin]
+        initializeElfNode()
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        guard let touch = touches.first else {
+            print("👆🏻🚫👆🏻🚫👆🏻🚫 Unable to identify touches on any plane, ignoring everything.")
+            return
+        }
+
+        let touchPoint = touch.location(in: sceneView)
+        // we need to make sure we are actually on a plane
+        guard let plane = virtualPlaneProperlySet(touchPoint: touchPoint) else { return }
+        addElfToPlane(plane: plane, at: touchPoint)
+    }
+
+    func virtualPlaneProperlySet(touchPoint: CGPoint) -> VirtualPlane? {
+        let hits = sceneView.hitTest(touchPoint, types: .existingPlaneUsingExtent)
+        guard hits.count > 0 else { return nil  }
+        guard let firstHit = hits.first, let identifier = firstHit.anchor?.identifier, let plane = planes[identifier] else {
+            return nil
+        }
+
+        selectedPlane = plane
+        return plane
+    }
+
+    func addElfToPlane(plane: VirtualPlane, at point: CGPoint) {
+        let hits = sceneView.hitTest(point, types: .existingPlaneUsingExtent)
+        guard hits.count > 0 else { return }
+        guard let firstHit = hits.first else { return }
+
+        guard let anElf = elfNode?.clone() else { return }
+        anElf.position = SCNVector3Make(firstHit.worldTransform.columns.3.x, firstHit.worldTransform.columns.3.y, firstHit.worldTransform.columns.3.z)
+        sceneView.scene.rootNode.addChildNode(anElf)
+    }
+
+    func initializeElfNode() {
+        let elfScene = SCNScene(named: "santa_hat_dae")
+        elfNode = elfScene?.rootNode.childNode(withName: "santa_hat", recursively: false)
     }
 
     func setUpARScene() {
